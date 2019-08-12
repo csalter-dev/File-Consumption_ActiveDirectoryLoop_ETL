@@ -1,0 +1,1605 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/8/2019 4:22:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHRIS"
+  DTS:CreatorName="Chris\chrissalter"
+  DTS:DTSID="{FA840324-6E02-4B5D-880A-7996C87D9431}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FlightData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{F64331E4-1DBF-4368-AF48-A530CB3C7886}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlightHistoryDataRead]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BE05533D-6930-4376-89D1-0B7F78DB97EF}"
+      DTS:ObjectName="FlightHistoryDataRead">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::vFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\chrissalter\Documents\Inbound\\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Arrive Or Depart"
+              DTS:DTSID="{6DA36CF8-C2B3-4984-AA41-77E27890B520}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Schedule"
+              DTS:DTSID="{4B42374A-A657-4054-B1BA-01C56212BA8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Airline"
+              DTS:DTSID="{C8725861-2DC5-429E-AC78-ACED4ED98888}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flight Number"
+              DTS:DTSID="{EA1927EB-0425-44DC-A5E8-A6D950977F78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gate"
+              DTS:DTSID="{C9C85334-F692-4A8B-9C44-580E75C1E046}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Terminal"
+              DTS:DTSID="{03EEF45F-E4AE-4864-BC86-0042A91437CF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[InboundData]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1B6ECD92-8B68-4FDD-9828-E8509A03662B}"
+      DTS:ObjectName="InboundData">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::vFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\chrissalter\Documents\Inbound\\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerName"
+              DTS:DTSID="{4D8754CA-9F55-451F-B057-8EFC332A0BE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhNo"
+              DTS:DTSID="{06949D5A-17AD-4841-83B9-DE28F16A2D72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="email"
+              DTS:DTSID="{DAC9A87F-9877-4367-8BF5-B36240A45FD1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BC513889-11EE-436C-8BB0-81DE202CB772}"
+      DTS:ObjectName="ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">@[User::vFilePath]</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B4D1740-B933-43E9-BE3D-A6824D88D774}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE46D3A7-87BD-4E47-9631-6E8D85858BB9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vFileConsuptionDirectory">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\chrissalter\Documents\Inbound\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{206DFB83-3B6F-4700-9ADC-5454B2DC0132}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6D0B786-271D-42B5-A491-55220CD33A90}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vFileConsuptionDirectory]+&quot;\\&quot;+@[User::vFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\chrissalter\Documents\Inbound\\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69EFF8F1-166E-4EC0-9F74-29840DE33F76}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vFileConsuptionDirectory]+&quot;\\Archive&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vInboundFileArchiveFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\chrissalter\Documents\Inbound\\Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A9499F6E-6847-4233-AC0E-0621FE08F772}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vInboundFileArchiveFolder]+&quot;\\&quot;+ @[User::vFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vInboundFileArchivePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\chrissalter\Documents\Inbound\\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{6122A106-E51A-41A7-83D5-1E35C55C4A97}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{40E82C6A-7605-41E3-8A57-E5486FC4D970}"
+        DTS:ObjectName="{40E82C6A-7605-41E3-8A57-E5486FC4D970}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\chrissalter\Documents\Inbound" />
+            <FEFEProperty
+              FileSpec="*flightinfo.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Inbound File Archive"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{CCD5874F-8D4C-4E46-84AC-89C351E3D644}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Inbound File Archive"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::vFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::vInboundFileArchiveFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load Data File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E617016F-90B2-4412-A3BC-7954BFD3F43F}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Data File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Load Data File\Inbound Directory"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Inbound Directory"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FlightHistoryDataRead]"
+                      connectionManagerRefId="Package.ConnectionManagers[FlightHistoryDataRead]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Arrive Or Depart]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Arrive Or Depart]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Arrive Or Depart]"
+                          name="Arrive Or Depart"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Schedule]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Schedule]"
+                          name="Schedule"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Airline]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Airline]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Airline]"
+                          name="Airline"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Flight Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Flight Number]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Flight Number]"
+                          name="Flight Number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Gate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Gate]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Gate]"
+                          name="Gate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Terminal]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Terminal]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Terminal]"
+                          name="Terminal"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Arrive Or Depart]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Arrive Or Depart" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Schedule]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Schedule" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Airline]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Airline" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Flight Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Flight Number" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Gate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Gate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].ExternalColumns[Terminal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Terminal" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[apps].[SkyHarborFlight_staging]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[CHRIS_SQLEXPRESS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Schedule]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Schedule"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Schedule]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Airline]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Airline"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Airline]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Airline]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Gate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gate]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Gate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Terminal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Terminal"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Terminal]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Terminal]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flight Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Flight Number"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FlightNumber]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Flight Number]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Arrive Or Depart]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Arrive Or Depart"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ArriveOrDeparture]"
+                          lineageId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output].Columns[Arrive Or Depart]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ArriveOrDeparture]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ArriveOrDeparture" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Schedule" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Airline]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Airline" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FlightNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="FlightNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Gate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Terminal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="Terminal" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Load Data File.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Load Data File\Inbound Directory.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{897C3603-D47B-44EF-88AB-7A5973F30D69}"
+          DTS:From="Package\Foreach Loop Container\Load Data File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Inbound File Archive" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{F18451B4-7861-4075-888A-3F9E87B4AA6E}"
+          DTS:ObjectName="{F18451B4-7861-4075-888A-3F9E87B4AA6E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::vFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Migrate From Staging to Prod"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FEFDD6CA-F453-4779-9426-31666A9E9A64}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Migrate From Staging to Prod"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Migrate From Staging to Prod\FlightDataProd"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="FlightDataProd"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[apps].[SkyHarborFlight]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrate From Staging to Prod\FlightDataProd.Connections[OleDbConnection]"
+                  connectionManagerID="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CHRIS_SQLEXPRESS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[ArriveOrDeparture]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ArriveOrDeparture"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[ArriveOrDeparture]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[ArriveOrDeparture]" />
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[Schedule]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Schedule"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Schedule]" />
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[Airline]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Airline"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Airline]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Airline]" />
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[FlightNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FlightNumber"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[FlightNumber]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[FlightNumber]" />
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[Gate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Gate"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Gate]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Gate]" />
+                    <inputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].Columns[Terminal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Terminal"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Terminal]"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Terminal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[ArriveOrDeparture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ArriveOrDeparture" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Schedule]"
+                      dataType="dbTimeStamp"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Airline]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Airline" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[FlightNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FlightNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Gate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Gate" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input].ExternalColumns[Terminal]"
+                      dataType="i4"
+                      name="Terminal" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrate From Staging to Prod\FlightDataProd.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataProd.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataProd.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataProd.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrate From Staging to Prod\FlightDataStaging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="FlightDataStaging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[apps].[SkyHarborFlight_staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrate From Staging to Prod\FlightDataStaging.Connections[OleDbConnection]"
+                  connectionManagerID="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CHRIS_SQLEXPRESS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[ArriveOrDeparture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[ArriveOrDeparture]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[ArriveOrDeparture]"
+                      name="ArriveOrDeparture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Schedule]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Schedule]"
+                      name="Schedule"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Airline]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Airline]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Airline]"
+                      name="Airline"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[FlightNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[FlightNumber]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[FlightNumber]"
+                      name="FlightNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Gate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Gate]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Gate]"
+                      name="Gate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Terminal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Terminal]"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].Columns[Terminal]"
+                      name="Terminal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[ArriveOrDeparture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ArriveOrDeparture" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Schedule" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Airline]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Airline" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[FlightNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FlightNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Gate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Gate" />
+                    <externalMetadataColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output].ExternalColumns[Terminal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Terminal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ArriveOrDeparture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ArriveOrDeparture]"
+                      name="ArriveOrDeparture" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Schedule]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Schedule]"
+                      name="Schedule" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Airline]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Airline]"
+                      name="Airline" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[FlightNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[FlightNumber]"
+                      name="FlightNumber" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Gate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Gate]"
+                      name="Gate" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Terminal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[Terminal]"
+                      name="Terminal" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Migrate From Staging to Prod.Paths[OLE DB Source Output]"
+              endId="Package\Migrate From Staging to Prod\FlightDataProd.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Migrate From Staging to Prod\FlightDataStaging.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Prod"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{a8236245-9dcd-4bcd-b70d-2d2940e122f7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Prod"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}"
+          SQLTask:SqlStatementSource="&#xA;if object_id('apps.SkyHarborFlight') is not null&#xA;begin&#xA;&#xA;truncate table apps.SkyHarborFlight&#xA;end " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C13C4E4F-8D6F-487D-B0D4-75561D13836C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}"
+          SQLTask:SqlStatementSource="&#xA;if object_id('apps.SkyHarborFlight_staging') is not null&#xA;begin&#xA;&#xA;truncate table apps.SkyHarborFlight_staging&#xA;end &#xA;&#xA;&#xA;if object_id('apps.SkyHarborFlight_staging_errors') is not null&#xA;begin&#xA;&#xA;truncate table apps.SkyHarborFlight_staging_errors&#xA;end " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Validation Process"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8A39B553-00EA-4709-99D8-8DD921EFE190}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Validation Process">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Validation Process\Delete From Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BA62E607-B3E1-4491-9086-C00117B9E443}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete From Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}"
+              SQLTask:SqlStatementSource="&#x9;&#x9;Delete A&#xA;&#x9;&#x9;From apps.SkyHarborFlight_staging A&#xA;&#x9;&#x9;inner join apps.SkyHarborFlight_staging_errors b on &#xA;&#x9;&#x9;a.ArriveOrDeparture = b.ArriveOrDeparture and &#xA;a.Schedule = b.Schedule and &#xA;a.Airline = b.Airline and &#xA;a.FlightNumber = b.FlightNumber" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Validation Process\Move From Staging to Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{147D9E16-C879-4EE5-BE55-01E802D01003}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move From Staging to Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0B34CCA3-3C16-435E-AF50-DA9C95B93964}"
+              SQLTask:SqlStatementSource="insert into  [apps].[SkyHarborFlight_staging_errors]&#xA;Select *&#xA;From  [apps].[SkyHarborFlight_staging]&#xA;where terminal = ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Validation Process.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{ECA924AD-CAF3-404B-8C71-4736F76BDD92}"
+          DTS:From="Package\Validation Process\Move From Staging to Error"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Validation Process\Delete From Staging" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB953529-88FD-4731-8C77-0C7DC2530B78}"
+      DTS:From="Package\Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D81E17B0-06FF-4038-845D-67A446666E60}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Validation Process" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{461C5BC7-A1BC-4615-B245-178D8F91689A}"
+      DTS:From="Package\Validation Process"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Migrate From Staging to Prod" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB572C89-087A-42D5-B903-258A341BB266}"
+      DTS:From="Package\Migrate From Staging to Prod"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate Prod" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Truncate Staging Table"
+          TopLeft="935,135" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\Inbound File Archive"
+          TopLeft="30,118" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Foreach Loop Container\Load Data File"
+          TopLeft="33,22" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="107.5,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="208,215"
+          Size="208,258"
+          Id="Package\Foreach Loop Container"
+          TopLeft="922,262" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Migrate From Staging to Prod"
+          TopLeft="1423,585" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1027.5,177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Validation Process\Move From Staging to Error"
+          TopLeft="22,12" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Validation Process\Delete From Staging"
+          TopLeft="311,13" />
+        <EdgeLayout
+          Id="Package\Validation Process.PrecedenceConstraints[Constraint]"
+          TopLeft="231,33.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80,0"
+              Start="0,0"
+              End="72.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="72.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="514,110"
+          Size="514,153"
+          Id="Package\Validation Process"
+          TopLeft="1282,318" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1130,392.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152,0"
+              Start="0,0"
+              End="144.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="144.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1535.5,471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114"
+              Start="0,0"
+              End="0,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Truncate Prod"
+          TopLeft="1463,668" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="1533.75,627">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Load Data File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Foreach Loop Container\Load Data File\Inbound Directory"
+          TopLeft="909,170" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Foreach Loop Container\Load Data File\OLE DB Destination"
+          TopLeft="905,270" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Load Data File.Paths[Flat File Source Output]"
+          TopLeft="990.75,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Load Data File\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Migrate From Staging to Prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Migrate From Staging to Prod\FlightDataStaging"
+          TopLeft="782,198" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Migrate From Staging to Prod\FlightDataProd"
+          TopLeft="796,315" />
+        <EdgeLayout
+          Id="Package\Migrate From Staging to Prod.Paths[OLE DB Source Output]"
+          TopLeft="866.5,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrate From Staging to Prod\FlightDataProd">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrate From Staging to Prod\FlightDataStaging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
